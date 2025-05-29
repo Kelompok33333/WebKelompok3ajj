@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anteiku</title>
+  <link rel="icon" href="ii.jpg" />
+  <style>
+    :root {
+      --primary: #27ae60;
+      --dark: #2c3e50;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: url('uuu.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: var(--dark);
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    header .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+    }
+
+    header .logo h1 {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    header button {
+      background: white;
+      color: var(--primary);
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    header button:hover {
+      background: #e1f5e8;
+    }
+
+    .hero {
+      background: url('https://source.unsplash.com/1600x800/?shop,store') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content h2 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .hero-content p {
+      font-size: 20px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      padding: 60px 40px;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
+    }
+
+    .product-card img {
+      width: 100%;
+      border-radius: 8px;
+      height: 150px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .product-card h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .product-card p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .product-card strong {
+      font-size: 16px;
+      color: var(--dark);
+    }
+
+    .product-card form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .product-card input[type="number"] {
+      width: 60px;
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    .product-card button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .product-card button:hover {
+      background: #1e8449;
+    }
+
+    .cart {
+      background: white;
+      padding: 30px;
+      margin: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .cart h2 {
+      margin-bottom: 20px;
+    }
+
+    .cart table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .cart th, .cart td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    .cart tfoot td {
+      font-weight: bold;
+    }
+
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="ii.jpg" alt="Logo Toko" />
+      <h1>KELOMPOK 3</h1>
+    </div>
+    <button onclick="scrollToCart()">🛒 Lihat Keranjang</button>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>ANTEIKUCOFFEE</h2>
+      <p>Belanja mudah & cepat dengan pilihan produk terbaik!</p>
+    </div>
+  </section>
+
+  <!-- Produk -->
+  <section class="products" id="products">
+    <!-- Produk akan dimasukkan dengan JavaScript -->
+  </section>
+
+  <!-- Keranjang Belanja -->
+  <section class="cart" id="cart">
+    <h2>Keranjang Belanja</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Produk</th>
+          <th>Jumlah</th>
+          <th>Harga Satuan</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody id="cart-items">
+        <tr><td colspan="4">Belum ada item di keranjang.</td></tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">Total Harga</td>
+          <td id="grand-total">Rp 0</td>
+        </tr>
+      </tfoot>
+    </table>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 AnteikuCoffee. Semua hak dilindungi.
+  </footer>
+
+  <!-- Script JavaScript -->
+  <script>
+    const products = [
+      { nama: "Nasi Ayam Geprek", harga: 20000, gambar: "pp.jpg", deskripsi: "Nasi Ayam Super Lezat" },
+      { nama: "Burger Spesial", harga: 25000, gambar: "ll.jpg", deskripsi: "Burger lezat favorit semua usia" },
+      { nama: "Pisang Goreng", harga: 12000, gambar: "00.jpg", deskripsi: "Sensasi makan pisang penuh energi" },
+      { nama: "Mie Goreng", harga: 18000, gambar: "99.jpg", deskripsi: "Mie goreng yang lezat" },
+      { nama: "Kopirobusta", harga: 15000, gambar: "55.jpg", deskripsi: "Campuran sempurna antara kopi dan susu" },
+      { nama: "Alpukat Kocok", harga: 17000, gambar: "88.jpg", deskripsi: "Alpukat kocok yang enak" },
+      { nama: "Es Teh", harga: 8000, gambar: "77.jpg", deskripsi: "Diseduh manual dengan teknik drip handal" },
+      { nama: "Kopi Susu", harga: 14000, gambar: "oo.jpg", deskripsi: "Campuran sensasi jadi satu" },
+    ];
+
+    const productContainer = document.getElementById("products");
+    const cartItems = document.getElementById("cart-items");
+    const grandTotal = document.getElementById("grand-total");
+
+    let cart = [];
+
+    function renderProducts() {
+      products.forEach((product, index) => {
+        const div = document.createElement("div");
+        div.className = "product-card";
+        div.innerHTML = `
+          <img src="${product.gambar}" alt="${product.nama}" />
+          <h3>${product.nama}</h3>
+          <p>${product.deskripsi}</p>
+          <p><strong>Rp ${product.harga.toLocaleString()}</strong></p>
+          <form onsubmit="addToCart(event, ${index})">
+            <input type="number" min="1" value="1" />
+            <button type="submit">Tambah ke Keranjang</button>
+          </form>
+        `;
+        productContainer.appendChild(div);
+      });
+    }
+
+    function addToCart(event, index) {
+      event.preventDefault();
+      const jumlah = parseInt(event.target.querySelector("input").value);
+      const produk = products[index];
+      const existing = cart.find(item => item.nama === produk.nama);
+      if (existing) {
+        existing.jumlah += jumlah;
+      } else {
+        cart.push({ ...produk, jumlah });
+      }
+      updateCart();
+    }
+
+    function updateCart() {
+      if (cart.length === 0) {
+        cartItems.innerHTML = '<tr><td colspan="4">Belum ada item di keranjang.</td></tr>';
+        grandTotal.textContent = 'Rp 0';
+        return;
+      }
+
+      cartItems.innerHTML = '';
+      let total = 0;
+      cart.forEach(item => {
+        const itemTotal = item.harga * item.jumlah;
+        total += itemTotal;
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${item.nama}</td>
+          <td>${item.jumlah}</td>
+          <td>Rp ${item.harga.toLocaleString()}</td>
+          <td>Rp ${itemTotal.toLocaleString()}</td>
+        `;
+        cartItems.appendChild(row);
+      });
+      grandTotal.textContent = `Rp ${total.toLocaleString()}`;
+    }
+
+    function scrollToCart() {
+      document.getElementById("cart").scrollIntoView({ behavior: "smooth" });
+    }
+
+    renderProducts();
+  </script>
+
+</body>
+</html>
